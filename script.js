@@ -20,7 +20,7 @@ $(searchBtn).on("click", function () {
         for (q = 0; q<numArt; q++) {
             console.log(response.response.docs[q].headline.main);
             var artDisplay = $("<div>");
-            var title = $("<h3>");
+            var title = $("<h3 class='border'>");
             $(title).text(response.response.docs[q].headline.main);
             $(artDisplay).append(title);
             $(articlesList).append(artDisplay);
