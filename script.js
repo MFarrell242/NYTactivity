@@ -6,6 +6,7 @@ $(resetBtn).on("click", function () {
 var term = document.querySelector("#query");
 var searchBtn = document.querySelector(".go");
 var searchVol = document.querySelector("#nombre");
+var articlesList = document.querySelector(".articlesList");
 $(searchBtn).on("click", function () {
     event.preventDefault();
     term = $(term).val();
@@ -17,8 +18,12 @@ $(searchBtn).on("click", function () {
     }).then(function (response) {
         console.log(response);
         for (q = 0; q<numArt; q++) {
+            console.log(response.response.docs[q].headline.main);
             var artDisplay = $("<div>");
-            $(artDisplay);
+            var title = $("<h3>");
+            $(title).text(response.response.docs[q].headline.main);
+            $(artDisplay).append(title);
+            $(articlesList).append(artDisplay);
         }
     });
 
